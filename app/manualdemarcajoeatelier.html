@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Manual de Identidad de Marca — Joe Bautista Coiffure (Geneva)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    /* --- CONFIGURACIÓN GENERAL Y PARA IMPRESIÓN --- */
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #F8F8F8; /* Off-White de fondo */
+      color: #2B2B2B; /* Charcoal principal */
+      line-height: 1.7;
+      -webkit-print-color-adjust: exact; /* Asegura que los colores de fondo se impriman */
+    }
+
+    /* Contenedor principal para el contenido */
+    .page-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 60px 40px;
+      background-color: #FFFFFF;
+    }
+
+    /* --- PORTADA --- */
+    .cover-page {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px;
+      background-color: #FFFFFF;
+      box-sizing: border-box; /* Asegura que el padding no afecte la altura */
+    }
+    .cover-page h1 {
+      font-size: 48px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin: 0;
+      border: 2px solid #2B2B2B;
+      padding: 20px 30px;
+    }
+    .cover-page h2 {
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: 1px;
+      margin-top: 20px;
+      color: #7B7B7B;
+    }
+
+    /* --- TIPOGRAFÍA --- */
+    h1, h2, h3 {
+      font-weight: 600;
+      margin-top: 40px;
+      margin-bottom: 10px;
+      letter-spacing: 0.4px;
+    }
+    h1 {
+      font-size: 34px;
+      text-transform: uppercase;
+    }
+    h2 {
+      font-size: 28px;
+      margin-top: 80px; /* Más espacio entre secciones */
+      padding-bottom: 15px;
+      border-bottom: 1px solid #E0E0E0; /* Línea separadora sutil */
+    }
+    h3 {
+      font-size: 22px;
+      margin-top: 40px;
+      font-weight: 500;
+      color: #5B5B5B;
+    }
+
+    .fr {
+      font-size: 16px;
+      font-weight: 400;
+      font-style: italic;
+      color: #8B8B8B;
+      margin-top: -15px;
+      margin-bottom: 24px;
+      display: block;
+    }
+
+    p, ul li {
+      max-width: 720px;
+      margin-bottom: 16px;
+      font-size: 16px;
+      font-weight: 300;
+    }
+    ul {
+      list-style-type: '— ';
+      padding-left: 20px;
+      margin-bottom: 20px;
+    }
+    ul li { margin-bottom: 10px; }
+    strong { font-weight: 600; }
+
+    /* --- IMÁGENES --- */
+    .image-placeholder-img {
+      width: 100%;
+      height: auto;
+      min-height: 300px; /* Mantiene el espacio si la imagen no carga */
+      margin: 40px 0;
+      background-color: #EAEAEA; /* Fondo visible si el enlace de la imagen está roto */
+      object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
+      display: block; /* Elimina espacio extra debajo de la imagen */
+    }
+
+    /* --- LAYOUT Y COMPONENTES --- */
+    .grid-2-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    
+    .section-intro {
+        font-size: 18px;
+        font-style: italic;
+        color: #5B5B5B;
+        max-width: 600px;
+        margin-bottom: 40px;
+    }
+
+    /* Paleta de Colores */
+    .color-palette {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+    .color-swatch {
+      text-align: left;
+    }
+    .color-swatch .swatch {
+      width: 100%;
+      height: 120px;
+      border: 1px solid #E0E0E0;
+    }
+    .color-swatch .swatch-info {
+      padding: 10px 5px;
+      font-size: 14px;
+    }
+    .swatch-info span {
+      display: block;
+      font-weight: 600;
+    }
+
+    /* Estilo para el ejemplo de tono */
+    .tone-example {
+      background-color: #F8F8F8;
+      border-left: 3px solid #BEB8AF; /* Color Stone */
+      padding: 25px 30px;
+      margin-top: 20px;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 19px;
+      line-height: 1.8;
+    }
+    
+    /* Página nueva para impresión */
+    .page-break {
+        page-break-before: always;
+    }
+    
+    /* Pie de página */
+    footer {
+        text-align: center;
+        margin-top: 100px;
+        padding-top: 20px;
+        border-top: 1px solid #E0E0E0;
+        font-size: 12px;
+        color: #8B8B8B;
+    }
+    
+  </style>
+</head>
+<body>
+
+  <!-- PORTADA -->
+  <div class="cover-page">
+    <h1>Joe Bautista Coiffure</h1>
+    <h2>Manual de Identidad de Marca</h2>
+  </div>
+
+  <div class="page-container">
+    <main>
+      <!-- ÍNDICE -->
+      <section id="indice">
+        <h2>Índice</h2>
+        <ul>
+          <li>1. Propósito de Marca / Purpose de Marque</li>
+          <li>2. Visión / Vision</li>
+          <li>3. Misión / Mission</li>
+          <li>4. Valores / Valeurs</li>
+          <li>5. Personalidad / Personnalité</li>
+          <li>6. Naming y Tagline</li>
+          <li>7. Identidad Visual & Verbal</li>
+          <li>8. Paleta, Tipografías y Estilo Fotográfico</li>
+          <li>9. Ejemplo de Tono (French)</li>
+          <li>10. Recomendaciones de Uso</li>
+        </ul>
+      </section>
+
+      <img src="../public/images/hero-image.jpg" alt="Imagen evocadora del servicio: detalle de herramientas o textura de cabello." class="image-placeholder-img">
+
+      <!-- FILOSOFÍA DE MARCA -->
+      <section id="filosofia" class="page-break">
+        <h2>1. Propósito de Marca</h2>
+        <span class="fr">Purpose de Marque</span>
+        <p>Elevar la presencia y la confianza de las personas mediante servicios de coiffure y grooming refinados y completamente personalizados, realizados con precisión y discreción en la comodidad del hogar del cliente.</p>
+
+        <h2>2. Visión</h2>
+        <span class="fr">Vision</span>
+        <p>Convertirse en la referencia más reconocida en Ginebra para servicios premium de coiffure y grooming a domicilio, asociándose con elegancia, modernidad y una atención impecable al detalle.</p>
+
+        <h2>3. Misión</h2>
+        <span class="fr">Mission</span>
+        <p>Proporcionar servicios excepcionales y personalizados de belleza en el hogar del cliente, combinando expertise técnico, modernidad y una experiencia estética refinada.</p>
+      </section>
+      
+      <section id="personalidad" class="page-break">
+        <div class="grid-2-col">
+          <div>
+            <h2>4. Valores</h2>
+            <span class="fr">Valeurs</span>
+            <ul>
+              <li><strong>Refinamiento:</strong> Cada detalle importa.</li>
+              <li><strong>Precisión:</strong> Ejecución técnica impecable.</li>
+              <li><strong>Discreción:</strong> Respeto total a la intimidad del cliente.</li>
+              <li><strong>Modernidad:</strong> Técnicas y tendencias actuales.</li>
+              <li><strong>AutentICidad:</strong> Conexión humana genuina.</li>
+            </ul>
+
+            <h2>5. Personalidad</h2>
+            <span class="fr">Personnalité</span>
+            <p>Minimalista, sofisticada, tranquila, contemporánea, elegante y fiable. Inspirada en marcas como Aesop, Loro Piana o Le Labo: una presencia discreta pero profundamente refinada.</p>
+          </div>
+          <img src="../public/images/moodboard.jpg" alt="Moodboard visual que captura la personalidad de la marca (estilo Aesop, Le Labo)." class="image-placeholder-img" style="height: 100%; margin-top: 0;">
+        </div>
+      </section>
+      
+      <!-- IDENTIDAD -->
+      <section id="identidad" class="page-break">
+        <h2>6. Naming y Tagline</h2>
+        <p><strong>Nombre de marca:</strong> Joe Bautista Coiffure</p>
+        <p>
+          <strong>Tagline (opciones de trabajo):</strong><br/>
+          “Haute coiffure & grooming à domicile”<br/>
+          “Services de coiffure et soins raffinés”<br/>
+          “Beauté et grooming sur mesure”
+        </p>
+
+        <h2>7. Identidad Visual & Verbal</h2>
+        <p>
+          La identidad visual se basa en un enfoque minimalista, con un wordmark limpio en sans-serif geométrica, sin iconos ni elementos decorativos. La identidad verbal utiliza un tono suave, compuesto y respetuoso; sin exageración, con frases cortas y cuidando el equilibrio entre elegancia y cercanía.
+        </p>
+      </section>
+
+      <!-- GUÍA DE ESTILO -->
+      <section id="guia-estilo" class="page-break">
+        <h2>8. Guía de Estilo Visual</h2>
+        
+        <h3>Paleta de Colores</h3>
+        <p class="section-intro">La paleta es contenida y sofisticada, diseñada para evocar calma y lujo silencioso.</p>
+        <div class="color-palette">
+          <div class="color-swatch">
+            <div class="swatch" style="background-color: #2B2B2B;"></div>
+            <div class="swatch-info"><span>Charcoal / Off-Black</span> #2B2B2B</div>
+          </div>
+          <div class="color-swatch">
+            <div class="swatch" style="background-color: #F8F8F8;"></div>
+            <div class="swatch-info"><span>Off-White</span> #F8F8F8</div>
+          </div>
+          <div class="color-swatch">
+            <div class="swatch" style="background-color: #BEB8AF;"></div>
+            <div class="swatch-info"><span>Stone / Warm Beige</span> #BEB8AF</div>
+          </div>
+        </div>
+        
+        <div class="grid-2-col" style="margin-top: 60px;">
+          <div>
+            <h3>Tipografía</h3>
+            <ul>
+              <li><strong>Primaria:</strong> Sans-serif geométrica (Suisse Intl / Inter / Helvetica Now)</li>
+              <li><strong>Secundaria (opcional):</strong> Serif editorial para acentos (Editorial New / Playfair Display)</li>
+            </ul>
+            
+            <h3>Composición</h3>
+            <ul>
+              <li>Márgenes amplios y bloques de texto breves.</li>
+              <li>Grid alineado a la izquierda.</li>
+              <li>Sin iconos ornamentales o elementos gráficos.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Estilo Fotográfico</h3>
+            <ul>
+              <li>Fondos neutros y luz natural.</li>
+              <li>Composiciones limpias y no recargadas.</li>
+              <li>Poses naturales, sin sonrisas exageradas.</li>
+            </ul>
+          </div>
+        </div>
+        
+        <img src="../public/images/photography-style.jpg" alt="Ejemplo de fotografía con luz natural, composición limpia y tonos neutros." class="image-placeholder-img">
+      </section>
+
+      <!-- APLICACIONES Y RECOMENDACIONES -->
+      <section id="aplicaciones" class="page-break">
+        <h2>9. Ejemplo de Tono (FR)</h2>
+        <p class="tone-example">“Coiffure et soins haut de gamme, à domicile.  
+          Des services personnalisés pour femmes, hommes et enfants, réalisés avec précision, calme et discrétion.”</p>
+          
+        <h2>10. Recomendaciones de Uso</h2>
+        <ul>
+          <li>Utilizar siempre la denominación completa “Joe Bautista Coiffure” en todos los soportes.</li>
+          <li>En redes sociales evitar mensajes largos; utilizar frases en francés cortas y elegantes.</li>
+          <li>Las fotografías deben seguir un estilo escandinavo (luz natural, espacio en blanco, tonos neutros).</li>
+          <li>Evitar el uso de iconos decorativos o elementos gráficos innecesarios.</li>
+          <li>Aplicar coherentemente la paleta cromática y el enfoque de silencio visual (quiet luxury).</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <p>Manual de Identidad de Marca | Joe Bautista Coiffure | Geneva</p>
+    </footer>
+  </div>
+
+</body>
+</html>
