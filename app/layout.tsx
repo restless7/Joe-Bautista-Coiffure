@@ -9,23 +9,23 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Joe Bautista Coiffure",
-  description: "Salon de coiffure d'exception à Paris, soins personnalisés et techniques modernes. (Exceptional hair salon in Paris, personalized care and modern techniques.)",
-  keywords: ["coiffure", "coiffeur", "salon", "cheveux", "coupe", "coloration", "soins", "Paris", "hairdresser"],
+  title: "Joe Bautista Atelier | Services Beauté à Domicile Genève",
+  description: "Services professionnels de coiffure, beauté et bien-être à domicile à Genève. Shampooing, coupe, couleur, manucure, massage. Déplacement dans toute la région métropolitaine.",
+  keywords: ["coiffure domicile Genève", "coiffeur mobile", "beauté à domicile", "manucure Genève", "massage domicile", "services beauté Genève", "coiffure à domicile Suisse"],
   authors: [{ name: "Joe Bautista" }],
   creator: "Joe Bautista",
-  publisher: "Joe Bautista Coiffure",
+  publisher: "Joe Bautista Atelier",
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://joebautistacoiffure.com"),
+  metadataBase: new URL("https://joebautista-atelier.com"),
   openGraph: {
-    title: "Joe Bautista Coiffure",
-    description: "Salon de coiffure d'exception à Paris, soins personnalisés et techniques modernes.",
+    title: "Joe Bautista Atelier | Services Beauté à Domicile Genève",
+    description: "Services professionnels de coiffure, beauté et bien-être à domicile à Genève et région métropolitaine.",
     type: "website",
-    locale: "fr_FR",
+    locale: "fr_CH",
     alternateLocale: "en_US",
   },
 };
