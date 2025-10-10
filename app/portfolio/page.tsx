@@ -7,29 +7,77 @@ import Footer from '../components/Footer';
 import Button from '../components/Button';
 
 export default function Portfolio() {
-  const [activeFilter, setActiveFilter] = useState('all');
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
-  const portfolioItems = [
-    { id: 1, category: 'coupe', title: 'Coupe Moderne à Domicile', image: '/images/portfolio/coupe-01.jpg' },
-    { id: 2, category: 'coloration', title: 'Balayage Professionnel', image: '/images/portfolio/color-01.jpg' },
-    { id: 3, category: 'transformation', title: 'Transformation Complète', image: '/images/portfolio/transform-01.jpg' },
-    { id: 4, category: 'coupe', title: 'Coupe Homme aux Ciseaux', image: '/images/portfolio/coupe-02.jpg' },
-    { id: 5, category: 'coloration', title: 'Mèches Naturelles', image: '/images/portfolio/color-02.jpg' },
-    { id: 6, category: 'evenementiel', title: 'Chignon Élégant', image: '/images/portfolio/event-01.jpg' },
-    { id: 7, category: 'keratine', title: 'Traitement Kératine', image: '/images/portfolio/keratine-01.jpg' },
-    { id: 8, category: 'beaute', title: 'Maquillage Événementiel', image: '/images/portfolio/makeup-01.jpg' },
-    { id: 9, category: 'coupe', title: 'Coupe Enfant Ludique', image: '/images/portfolio/coupe-03.jpg' },
-    { id: 10, category: 'wellbeing', title: 'Massage Relaxant', image: '/images/portfolio/massage-01.jpg' },
-    { id: 11, category: 'manucure', title: 'Manucure French', image: '/images/portfolio/manicure-01.jpg' },
-    { id: 12, category: 'beaute', title: 'Mise en Beauté Mariée', image: '/images/portfolio/bridal-01.jpg' },
+  const memoryItems = [
+    { 
+      id: 1, 
+      image: '/images/portafolio/first-salon-moment.jpg', 
+      title: 'Premier jour', 
+      caption: 'Mon tout premier jour en salon...\nQue de souvenirs !',
+      year: '2018',
+      rotation: '-3deg'
+    },
+    { 
+      id: 2, 
+      image: '/images/portafolio/award-ceremony.jpg', 
+      title: 'Reconnaissance', 
+      caption: 'Prix du meilleur coiffeur\nde Genève 2021',
+      year: '2021',
+      rotation: '2deg'
+    },
+    { 
+      id: 3, 
+      image: '/images/portafolio/masterclass-paris.jpg', 
+      title: 'Formation Paris', 
+      caption: 'Masterclass avec les plus\ngrands noms de la coiffure',
+      year: '2020',
+      rotation: '-1deg'
+    },
+    { 
+      id: 4, 
+      image: '/images/portafolio/celebrity-client.jpg', 
+      title: 'Moment spécial', 
+      caption: 'Avec ma cliente la plus\nmémorable à ce jour',
+      year: '2022',
+      rotation: '4deg'
+    },
+    { 
+      id: 5, 
+      image: '/images/portafolio/magazine-feature.jpg', 
+      title: 'Dans les magazines', 
+      caption: 'Featured dans Vogue Suisse\nUn rêve devenu réalité',
+      year: '2023',
+      rotation: '-2deg'
+    },
+    { 
+      id: 6, 
+      image: '/images/portafolio/fashion-week-backstage.jpg', 
+      title: 'Fashion Week', 
+      caption: 'Backstage à la Fashion Week\nGenève - Pure magie !',
+      year: '2023',
+      rotation: '1deg'
+    },
+    { 
+      id: 7, 
+      image: '/images/portafolio/studio-opening.jpg', 
+      title: 'Nouveau chapitre', 
+      caption: 'Ouverture de mon atelier\nà domicile',
+      year: '2024',
+      rotation: '-4deg'
+    },
+    { 
+      id: 8, 
+      image: '/images/portafolio/teaching-moment.jpg', 
+      title: 'Transmission', 
+      caption: 'Former la nouvelle génération\nma plus grande fierté',
+      year: '2024',
+      rotation: '3deg'
+    },
   ];
 
-  const filteredItems = activeFilter === 'all' 
-    ? portfolioItems 
-    : portfolioItems.filter(item => item.category === activeFilter);
-
   return (
-    <div className="min-h-screen bg-neutral-50">
+    <div className="min-h-screen bg-gradient-to-br from-amber-50 via-neutral-50 to-stone-100">
       <Header />
       
       {/* Hero Section */}
@@ -37,214 +85,176 @@ export default function Portfolio() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center space-y-8">
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-light text-neutral-900 tracking-tight leading-tight">
-              <span className="block">Nos</span>
-              <span className="block text-neutral-600">réalisations</span>
+              <span className="block">Mes</span>
+              <span className="block text-neutral-600">souvenirs</span>
             </h1>
             <p className="text-lg md:text-xl text-neutral-600 max-w-3xl mx-auto leading-relaxed">
-              Découvrez nos créations beauté réalisées à domicile dans la région genevoise. 
-              Coiffure, bien-être, soins esthétiques - chaque service dans le confort de votre foyer.
+              Découvrez les moments les plus marquants de mon parcours. 
+              Chaque polaroid raconte une histoire, chaque souvenir forge l'artiste que je suis devenu.
             </p>
             <div className="flex items-center justify-center space-x-4 text-sm text-neutral-500">
               <div className="flex items-center">
                 <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                  <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z" />
                 </svg>
-                Services à domicile - Genève
+                Une carrière en images
               </div>
               <div className="flex items-center">
                 <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                 </svg>
-                Résultats garantis
+                Moments authentiques
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Filter Navigation */}
-      <section className="py-12 bg-white">
+      {/* Polaroid Gallery */}
+      <section className="py-24 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap justify-center gap-4">
-            <button
-              onClick={() => setActiveFilter('all')}
-              className={`px-6 py-3 text-sm transition-all duration-300 ${
-                activeFilter === 'all'
-                  ? 'bg-neutral-900 text-white'
-                  : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
-              }`}
-            >
-              Tout voir
-            </button>
-            <button
-              onClick={() => setActiveFilter('coupe')}
-              className={`px-6 py-3 text-sm transition-all duration-300 ${
-                activeFilter === 'coupe'
-                  ? 'bg-neutral-900 text-white'
-                  : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
-              }`}
-            >
-              Coupes
-            </button>
-            <button
-              onClick={() => setActiveFilter('coloration')}
-              className={`px-6 py-3 text-sm transition-all duration-300 ${
-                activeFilter === 'coloration'
-                  ? 'bg-neutral-900 text-white'
-                  : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
-              }`}
-            >
-              Coloration
-            </button>
-            <button
-              onClick={() => setActiveFilter('beaute')}
-              className={`px-6 py-3 text-sm transition-all duration-300 ${
-                activeFilter === 'beaute'
-                  ? 'bg-neutral-900 text-white'
-                  : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
-              }`}
-            >
-              Beauté
-            </button>
-            <button
-              onClick={() => setActiveFilter('wellbeing')}
-              className={`px-6 py-3 text-sm transition-all duration-300 ${
-                activeFilter === 'wellbeing'
-                  ? 'bg-neutral-900 text-white'
-                  : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
-              }`}
-            >
-              Bien-être
-            </button>
-            <button
-              onClick={() => setActiveFilter('evenementiel')}
-              className={`px-6 py-3 text-sm transition-all duration-300 ${
-                activeFilter === 'evenementiel'
-                  ? 'bg-neutral-900 text-white'
-                  : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
-              }`}
-            >
-              Événements
-            </button>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-light text-neutral-900 tracking-tight mb-6">
+              Mes moments précieux
+            </h2>
+            <p className="text-neutral-600 max-w-2xl mx-auto">
+              Une collection de souvenirs authentiques qui racontent mon histoire
+            </p>
           </div>
-        </div>
-      </section>
-
-      {/* Portfolio Grid */}
-      <section className="py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredItems.map((item, index) => (
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+            {memoryItems.map((memory, index) => (
               <div
-                key={item.id}
-                className="group relative aspect-[4/5] overflow-hidden bg-neutral-100 cursor-pointer"
-                style={{ animationDelay: `${index * 100}ms` }}
+                key={memory.id}
+                className="group relative cursor-pointer transform transition-all duration-500 hover:scale-105 hover:z-10"
+                style={{ 
+                  transform: `rotate(${memory.rotation})`,
+                  animationDelay: `${index * 150}ms`,
+                }}
+                onClick={() => setSelectedImage(memory.image)}
               >
-                <Image
-                  src={item.image}
-                  alt={item.title}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
-                  placeholder="blur"
-                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
-                />
-                <div className="absolute inset-0 bg-neutral-900/0 group-hover:bg-neutral-900/60 transition-all duration-300">
-                  <div className="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                    <h3 className="text-lg font-medium mb-2">{item.title}</h3>
-                    <p className="text-sm opacity-80">Voir le détail</p>
+                {/* Polaroid Frame */}
+                <div className="bg-white p-3 pb-16 shadow-xl shadow-neutral-900/20 group-hover:shadow-2xl transition-all duration-500">
+                  <div className="relative aspect-[3/4] overflow-hidden bg-neutral-100">
+                    <Image
+                      src={memory.image}
+                      alt={memory.title}
+                      fill
+                      className="object-cover transition-all duration-500 group-hover:saturate-110"
+                      placeholder="blur"
+                      blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
+                    />
+                    {/* Vintage Filter */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-amber-100/20 via-transparent to-amber-900/10 pointer-events-none" />
+                  </div>
+                  
+                  {/* Handwritten Caption */}
+                  <div className="mt-3 text-center">
+                    <div className="text-neutral-700 text-sm font-mono tracking-wide whitespace-pre-line leading-tight">
+                      {memory.caption}
+                    </div>
+                    <div className="text-neutral-500 text-xs font-mono mt-2">
+                      {memory.year}
+                    </div>
                   </div>
                 </div>
+                
+                {/* Tape Effect */}
+                <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-16 h-8 bg-gradient-to-b from-yellow-100 to-yellow-200 opacity-60 shadow-sm" 
+                     style={{ transform: 'translateX(-50%) rotate(-5deg)' }} />
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Featured Work */}
+      {/* Journey Section */}
       <section className="bg-white py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-light text-neutral-900 tracking-tight mb-6">
-              Réalisations à Domicile
+              Mon Parcours
             </h2>
             <p className="text-neutral-600 max-w-2xl mx-auto">
-              Nos prestations les plus remarquables, réalisées dans le confort 
-              des domiciles de nos clients genevois.
+              De mes premiers pas en salon à l'atelier à domicile d'aujourd'hui, 
+              chaque étape a façonné l'artiste que je suis devenu.
             </p>
           </div>
 
           <div className="space-y-24">
-            {/* Featured Work 1 */}
+            {/* Journey Milestone 1 */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-              <div className="relative aspect-[4/5] overflow-hidden">
-                <Image
-                  src="/images/portfolio/featured-01.jpg"
-                  alt="Transformation signature - Avant/Après spectaculaire"
-                  fill
-                  className="object-cover"
-                  placeholder="blur"
-                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
-                />
+              <div className="relative">
+                {/* Polaroid Style */}
+                <div className="bg-white p-4 pb-16 shadow-2xl transform -rotate-2 max-w-md mx-auto">
+                  <div className="relative aspect-[3/4] overflow-hidden bg-neutral-100">
+                    <Image
+                      src="/images/portafolio/first-salon-moment.jpg"
+                      alt="Premier jour en salon"
+                      fill
+                      className="object-cover"
+                      placeholder="blur"
+                      blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-br from-amber-100/20 via-transparent to-amber-900/10" />
+                  </div>
+                  <div className="mt-3 text-center">
+                    <div className="text-neutral-700 text-sm font-mono">
+                      Premier jour en salon - 2018
+                    </div>
+                  </div>
+                </div>
               </div>
               <div className="space-y-6">
                 <h3 className="text-2xl md:text-3xl font-light text-neutral-900">
-                  Transformation à Domicile
+                  Les Débuts
                 </h3>
                 <p className="text-neutral-700 leading-relaxed">
-                  Une transformation complète réalisée dans le salon privé de notre cliente. 
-                  Shampooing, coupe moderne et balayage naturel - tout dans le confort 
-                  et l'intimité de son foyer genevois.
+                  Tout a commencé par une passion. Mon premier jour en salon reste gravé 
+                  dans ma mémoire - l'excitation, l'appréhension, mais surtout cette certitude 
+                  que j'avais trouvé ma voie. Chaque geste appris, chaque technique maîtrisée 
+                  m'a rapproché de mon rêve.
                 </p>
-                <div className="grid grid-cols-2 gap-4 text-sm text-neutral-600">
-                  <div>
-                    <span className="font-medium text-neutral-900">Services :</span>
-                    <br />Coupe + Balayage + Brushing
-                  </div>
-                  <div>
-                    <span className="font-medium text-neutral-900">Lieu :</span>
-                    <br />Domicile - Genève Centre
-                  </div>
+                <div className="text-sm text-neutral-600">
+                  <span className="font-medium text-neutral-900">Genève</span> • 2018
                 </div>
-                <Button variant="minimal">
-                  Voir plus de détails →
-                </Button>
               </div>
             </div>
 
-            {/* Featured Work 2 */}
+            {/* Journey Milestone 2 */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div className="order-2 lg:order-1 space-y-6">
                 <h3 className="text-2xl md:text-3xl font-light text-neutral-900">
-                  Séance Beauté Complète
+                  La Reconnaissance
                 </h3>
                 <p className="text-neutral-700 leading-relaxed">
-                  Une expérience beauté totale à domicile : mèches professionnelles, 
-                  manucure French et maquillage pour un événement spécial. 
-                  Notre cliente a profité d'une journée spa dans son salon privé.
+                  Recevoir le prix du meilleur coiffeur de Genève a été un tournant dans ma carrière. 
+                  Cette reconnaissance n'était pas seulement personnelle - elle validait des années 
+                  de travail acharné et de dévouement à mon art. Un moment d'émotion pure.
                 </p>
-                <div className="grid grid-cols-2 gap-4 text-sm text-neutral-600">
-                  <div>
-                    <span className="font-medium text-neutral-900">Services :</span>
-                    <br />Mèches + Manucure + Maquillage
+                <div className="text-sm text-neutral-600">
+                  <span className="font-medium text-neutral-900">Prix du Meilleur Coiffeur</span> • 2021
+                </div>
+              </div>
+              <div className="order-1 lg:order-2 relative">
+                <div className="bg-white p-4 pb-16 shadow-2xl transform rotate-1 max-w-md mx-auto">
+                  <div className="relative aspect-[3/4] overflow-hidden bg-neutral-100">
+                    <Image
+                      src="/images/portafolio/award-ceremony.jpg"
+                      alt="Cérémonie de remise de prix"
+                      fill
+                      className="object-cover"
+                      placeholder="blur"
+                      blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-br from-amber-100/20 via-transparent to-amber-900/10" />
                   </div>
-                  <div>
-                    <span className="font-medium text-neutral-900">Lieu :</span>
-                    <br />Domicile - Carouge
+                  <div className="mt-3 text-center">
+                    <div className="text-neutral-700 text-sm font-mono">
+                      Prix du meilleur coiffeur - 2021
+                    </div>
                   </div>
                 </div>
-                <Button variant="minimal">
-                  Découvrir nos forfaits →
-                </Button>
-              </div>
-              <div className="order-1 lg:order-2 relative aspect-[4/5] overflow-hidden">
-                <Image
-                  src="/images/portfolio/featured-02.jpg"
-                  alt="Coloration artistique - Techniques avancées"
-                  fill
-                  className="object-cover"
-                  placeholder="blur"
-                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
-                />
               </div>
             </div>
           </div>
@@ -330,30 +340,57 @@ export default function Portfolio() {
         </div>
       </section>
 
+      {/* Image Modal */}
+      {selectedImage && (
+        <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4" 
+             onClick={() => setSelectedImage(null)}>
+          <div className="relative max-w-2xl max-h-[90vh] bg-white p-6 pb-16">
+            <button 
+              onClick={() => setSelectedImage(null)}
+              className="absolute -top-4 -right-4 w-8 h-8 bg-neutral-900 text-white rounded-full flex items-center justify-center hover:bg-neutral-700 transition-colors z-10"
+            >
+              ×
+            </button>
+            <div className="relative aspect-[3/4] overflow-hidden">
+              <Image
+                src={selectedImage}
+                alt="Souvenir agrandi"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="mt-4 text-center">
+              <div className="text-neutral-700 text-sm font-mono">
+                Cliquez ailleurs pour fermer
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* CTA */}
-      <section className="bg-white py-24">
+      <section className="bg-gradient-to-br from-neutral-900 via-neutral-800 to-neutral-900 text-white py-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
-          <h2 className="text-3xl md:text-4xl font-light text-neutral-900 tracking-tight">
-            Votre transformation à domicile
+          <h2 className="text-3xl md:text-4xl font-light tracking-tight">
+            Écrivons votre histoire ensemble
           </h2>
-          <p className="text-neutral-600 text-lg max-w-2xl mx-auto leading-relaxed">
-            Inspiré(e) par nos réalisations ? Profitez vous aussi de nos services 
-            professionnels dans le confort de votre foyer genevois. 
-            Consultation, devis et réservation personnalisés.
+          <p className="text-neutral-300 text-lg max-w-2xl mx-auto leading-relaxed">
+            Chaque client devient partie de mon histoire. Laissez-moi créer pour vous 
+            une expérience beauté unique dans le confort de votre foyer genevois.
           </p>
-          <div className="bg-neutral-50 p-6 rounded-lg max-w-md mx-auto mb-8">
-            <div className="text-sm text-neutral-600 space-y-2">
-              <p><strong>Zone de service :</strong> Genève & région métropolitaine</p>
-              <p><strong>Déplacement :</strong> Inclus dans tous nos tarifs</p>
-              <p><strong>Consultation :</strong> Gratuite et sans engagement</p>
+          <div className="bg-neutral-800 p-6 rounded-lg max-w-md mx-auto mb-8">
+            <div className="text-sm text-neutral-300 space-y-2">
+              <p><strong className="text-white">Zone de service :</strong> Genève & région métropolitaine</p>
+              <p><strong className="text-white">Déplacement :</strong> Inclus dans tous nos tarifs</p>
+              <p><strong className="text-white">Consultation :</strong> Gratuite et sans engagement</p>
             </div>
           </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-neutral-900 text-white hover:bg-neutral-800">
-              Réserver à domicile
+            <Button size="lg" className="bg-white text-neutral-900 hover:bg-neutral-100">
+              Créer votre moment
             </Button>
-            <Button variant="secondary" size="lg">
-              Voir nos tarifs
+            <Button variant="secondary" size="lg" className="border-white text-white hover:bg-white hover:text-neutral-900">
+              Découvrir mes services
             </Button>
           </div>
         </div>
