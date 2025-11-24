@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Button from '../components/Button';
+import { WhatsAppButton } from '../components/booking/WhatsAppButton';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -32,7 +33,7 @@ export default function Contact() {
   return (
     <div className="min-h-screen bg-neutral-50">
       <Header />
-      
+
       {/* Hero Section */}
       <section className="relative py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -42,7 +43,7 @@ export default function Contact() {
               <span className="block text-neutral-600">à domicile</span>
             </h1>
             <p className="text-lg md:text-xl text-neutral-600 max-w-3xl mx-auto leading-relaxed">
-              Profitez de nos services professionnels de beauté et bien-être 
+              Profitez de nos services professionnels de beauté et bien-être
               dans le confort de votre foyer genevois.
             </p>
             <div className="flex items-center justify-center space-x-6 text-sm text-neutral-500">
@@ -67,12 +68,12 @@ export default function Contact() {
       <section className="bg-white py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            
+
             {/* Contact Information */}
             <div className="space-y-12">
               <div>
                 <h2 className="text-3xl font-light text-neutral-900 mb-8">Informations</h2>
-                
+
                 <div className="space-y-8">
                   <div>
                     <h3 className="text-lg font-medium text-neutral-900 mb-3">Zone de Service</h3>
@@ -150,7 +151,7 @@ export default function Contact() {
               <div className="bg-neutral-50 p-8">
                 <h3 className="text-lg font-medium text-neutral-900 mb-4">Consultation Gratuite</h3>
                 <p className="text-neutral-600 text-sm leading-relaxed mb-4">
-                  Profitez d'une consultation gratuite et sans engagement à domicile 
+                  Profitez d'une consultation gratuite et sans engagement à domicile
                   pour définir vos besoins et planifier vos services.
                 </p>
                 <div className="space-y-2 text-sm text-neutral-600 mb-4">
@@ -158,16 +159,16 @@ export default function Contact() {
                   <p>• Devis détaillé</p>
                   <p>• Conseils professionnels</p>
                 </div>
-                <Button variant="secondary">
-                  <a href="tel:+41794761781">Appeler maintenant</a>
-                </Button>
+                <WhatsAppButton variant="secondary">
+                  Contacter via WhatsApp
+                </WhatsAppButton>
               </div>
             </div>
 
             {/* Contact Form */}
             <div>
               <h2 className="text-3xl font-light text-neutral-900 mb-8">Réservation</h2>
-              
+
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
@@ -214,7 +215,7 @@ export default function Contact() {
                     value={formData.phone}
                     onChange={handleInputChange}
                     className="w-full px-4 py-3 border border-neutral-300 focus:border-neutral-900 focus:outline-none transition-colors"
-                      placeholder="+41 79 476 17 81"
+                    placeholder="+41 79 476 17 81"
                   />
                 </div>
 
@@ -309,14 +310,14 @@ export default function Contact() {
                     * Champs obligatoires
                   </p>
                   <p>
-                    Nous vous confirmerons votre rendez-vous par email ou téléphone dans les 24h. 
+                    Nous vous confirmerons votre rendez-vous par email ou téléphone dans les 24h.
                     Pour les consultations, aucun engagement d'achat n'est requis.
                   </p>
                 </div>
 
-                <Button 
-                  type="submit" 
-                  size="lg" 
+                <Button
+                  type="submit"
+                  size="lg"
                   className="w-full bg-neutral-900 text-white hover:bg-neutral-800"
                 >
                   Envoyer ma demande
@@ -347,7 +348,7 @@ export default function Contact() {
                 <p className="text-sm text-neutral-600">Tous quartiers du centre-ville</p>
               </div>
             </div>
-            
+
             <div className="bg-white p-6 rounded-lg shadow-sm">
               <div className="text-center">
                 <div className="text-3xl mb-3">🏡</div>
@@ -355,7 +356,7 @@ export default function Contact() {
                 <p className="text-sm text-neutral-600">Carouge, Plan-les-Ouates, Onex, Lancy</p>
               </div>
             </div>
-            
+
             <div className="bg-white p-6 rounded-lg shadow-sm">
               <div className="text-center">
                 <div className="text-3xl mb-3">🇫🇷</div>
@@ -364,7 +365,7 @@ export default function Contact() {
               </div>
             </div>
           </div>
-          
+
           <div className="text-center mt-8">
             <p className="text-sm text-neutral-500">
               Zone non listée ? Contactez-nous pour vérifier la disponibilité de nos services.
@@ -391,7 +392,7 @@ export default function Contact() {
                 Combien de temps à l'avance dois-je réserver ?
               </h3>
               <p className="text-neutral-600 text-sm leading-relaxed">
-                Nous recommandons de réserver 24h à l'avance minimum. 
+                Nous recommandons de réserver 24h à l'avance minimum.
                 Pour les services longs ou les forfaits, 2-3 jours de préavis sont préférables.
               </p>
             </div>
@@ -401,7 +402,7 @@ export default function Contact() {
                 Que dois-je préparer à domicile ?
               </h3>
               <p className="text-neutral-600 text-sm leading-relaxed">
-                Rien ! Nous apportons tout l'équipement professionnel nécessaire. 
+                Rien ! Nous apportons tout l'équipement professionnel nécessaire.
                 Il suffit d'avoir un espace avec électricité et point d'eau à proximité.
               </p>
             </div>
@@ -411,7 +412,7 @@ export default function Contact() {
                 Quels modes de paiement acceptez-vous ?
               </h3>
               <p className="text-neutral-600 text-sm leading-relaxed">
-                Nous acceptons les espèces (CHF, EUR), cartes bancaires, 
+                Nous acceptons les espèces (CHF, EUR), cartes bancaires,
                 Twint, et virements bancaires suisses.
               </p>
             </div>
@@ -421,7 +422,7 @@ export default function Contact() {
                 Y a-t-il des frais de déplacement ?
               </h3>
               <p className="text-neutral-600 text-sm leading-relaxed">
-                Non, tous nos tarifs incluent le déplacement dans la zone de service genevoise. 
+                Non, tous nos tarifs incluent le déplacement dans la zone de service genevoise.
                 C'est notre engagement qualité pour un service transparent.
               </p>
             </div>
@@ -431,7 +432,7 @@ export default function Contact() {
                 Proposez-vous des services en anglais/espagnol ?
               </h3>
               <p className="text-neutral-600 text-sm leading-relaxed">
-                Oui ! Nous parlons français, anglais et espagnol pour 
+                Oui ! Nous parlons français, anglais et espagnol pour
                 mieux vous accompagner dans votre langue préférée.
               </p>
             </div>
@@ -441,7 +442,7 @@ export default function Contact() {
                 Puis-je réserver pour toute la famille ?
               </h3>
               <p className="text-neutral-600 text-sm leading-relaxed">
-                Absolument ! Notre forfait famille (280 CHF) est parfait pour 
+                Absolument ! Notre forfait famille (280 CHF) est parfait pour
                 2 adultes + 1 enfant. Économique et pratique.
               </p>
             </div>

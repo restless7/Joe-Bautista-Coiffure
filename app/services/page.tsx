@@ -2,7 +2,8 @@ import React from 'react';
 import Image from 'next/image';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import Button from '../components/Button';
+import { BookingButton } from '../components/booking/BookingButton';
+import { WhatsAppButton } from '../components/booking/WhatsAppButton';
 
 export const metadata = {
   title: 'Services à Domicile - Joe Bautista Atelier | Coiffure & Beauté Genève',
@@ -14,7 +15,7 @@ export default function Services() {
   return (
     <div className="min-h-screen bg-neutral-50">
       <Header />
-      
+
       {/* Hero Section */}
       <section className="relative py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -24,7 +25,7 @@ export default function Services() {
               <span className="block text-neutral-600">à domicile</span>
             </h1>
             <p className="text-lg md:text-xl text-neutral-600 max-w-3xl mx-auto leading-relaxed">
-              Découvrez l'art de la beauté dans le confort de votre foyer. 
+              Découvrez l'art de la beauté dans le confort de votre foyer.
               Services professionnels de coiffure, bien-être et beauté à Genève et région métropolitaine.
             </p>
             <div className="flex items-center justify-center space-x-4 text-sm text-neutral-500">
@@ -53,7 +54,7 @@ export default function Services() {
               Services Coiffure
             </h2>
             <p className="text-neutral-600 max-w-2xl mx-auto">
-              Expertise professionnelle dans le confort de votre domicile, 
+              Expertise professionnelle dans le confort de votre domicile,
               avec des techniques modernes et des produits de qualité.
             </p>
           </div>
@@ -75,8 +76,8 @@ export default function Services() {
                 <div>
                   <h3 className="text-3xl font-light text-neutral-900 mb-4">Shampooing & Coupe</h3>
                   <p className="text-neutral-700 leading-relaxed mb-6">
-                    Service professionnel complet dans le confort de votre foyer. 
-                    Consultation personnalisée, shampooing avec produits de qualité, et coupe adaptée 
+                    Service professionnel complet dans le confort de votre foyer.
+                    Consultation personnalisée, shampooing avec produits de qualité, et coupe adaptée
                     à votre style et morphologie.
                   </p>
                   <div className="space-y-3 text-sm text-neutral-600">
@@ -98,7 +99,7 @@ export default function Services() {
                     </div>
                   </div>
                 </div>
-                <Button size="lg">Réserver ce service</Button>
+                <BookingButton size="lg">Réserver ce service</BookingButton>
               </div>
             </div>
 
@@ -108,8 +109,8 @@ export default function Services() {
                 <div>
                   <h3 className="text-3xl font-light text-neutral-900 mb-4">Coloration & Techniques</h3>
                   <p className="text-neutral-700 leading-relaxed mb-6">
-                    Techniques modernes de coloration à domicile avec des produits professionnels. 
-                    Balayage, mèches, couleur uniforme - chaque technique est adaptée à vos cheveux 
+                    Techniques modernes de coloration à domicile avec des produits professionnels.
+                    Balayage, mèches, couleur uniforme - chaque technique est adaptée à vos cheveux
                     et réalisée dans le respect des standards professionnels.
                   </p>
                   <div className="space-y-3 text-sm text-neutral-600">
@@ -127,7 +128,7 @@ export default function Services() {
                     </div>
                   </div>
                 </div>
-                <Button size="lg">Consultation couleur</Button>
+                <BookingButton size="lg">Consultation couleur</BookingButton>
               </div>
               <div className="order-1 lg:order-2 relative w-[560px] h-[560px] mx-auto overflow-hidden rounded-none shadow-lg">
                 <Image
@@ -157,8 +158,8 @@ export default function Services() {
                 <div>
                   <h3 className="text-3xl font-light text-neutral-900 mb-4">Soins & Coiffures Spéciales</h3>
                   <p className="text-neutral-700 leading-relaxed mb-6">
-                    Traitements professionnels pour des occasions spéciales. Lissage à la kératine 
-                    pour des cheveux soyeux et disciplinés, et créations de chignons élégants 
+                    Traitements professionnels pour des occasions spéciales. Lissage à la kératine
+                    pour des cheveux soyeux et disciplinés, et créations de chignons élégants
                     pour vos événements importants.
                   </p>
                   <div className="space-y-3 text-sm text-neutral-600">
@@ -172,7 +173,7 @@ export default function Services() {
                     </div>
                   </div>
                 </div>
-                <Button size="lg">Réserver un soin</Button>
+                <BookingButton size="lg">Réserver un soin</BookingButton>
               </div>
             </div>
           </div>
@@ -257,7 +258,7 @@ export default function Services() {
               Service à Domicile - Genève
             </h2>
             <p className="text-neutral-300 max-w-2xl mx-auto">
-              Profitez de nos services professionnels dans le confort de votre foyer. 
+              Profitez de nos services professionnels dans le confort de votre foyer.
               Basé à Genève, nous desservons toute la région métropolitaine.
             </p>
           </div>
@@ -332,9 +333,9 @@ export default function Services() {
                 <li>Déplacement à domicile inclus</li>
                 <li>Économie de 20 CHF</li>
               </ul>
-              <Button className="bg-white text-neutral-900 hover:bg-neutral-100 w-full">
+              <BookingButton className="bg-white text-neutral-900 hover:bg-neutral-100 w-full">
                 Réserver le Forfait Famille
-              </Button>
+              </BookingButton>
             </div>
           </div>
         </div>
@@ -347,7 +348,7 @@ export default function Services() {
             Réservez votre rendez-vous à domicile
           </h2>
           <p className="text-neutral-600 text-lg max-w-2xl mx-auto leading-relaxed">
-            Profitez de nos services professionnels de beauté et bien-être dans le confort 
+            Profitez de nos services professionnels de beauté et bien-être dans le confort
             de votre foyer. Contactez-nous pour organiser votre séance personnalisée.
           </p>
           <div className="bg-neutral-50 p-6 rounded-lg max-w-md mx-auto mb-8">
@@ -358,12 +359,12 @@ export default function Services() {
             </div>
           </div>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-neutral-900 text-white hover:bg-neutral-800">
+            <BookingButton size="lg" className="bg-neutral-900 text-white hover:bg-neutral-800">
               Réserver maintenant
-            </Button>
-            <Button variant="secondary" size="lg">
-              Appeler directement
-            </Button>
+            </BookingButton>
+            <WhatsAppButton variant="secondary" size="lg">
+              Contacter via WhatsApp
+            </WhatsAppButton>
           </div>
         </div>
       </section>

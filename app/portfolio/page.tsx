@@ -38,7 +38,7 @@ export default function Portfolio() {
       id: 4, 
       image: '/images/portafolio/celebrity-client.jpg', 
       title: 'Moment spécial', 
-      caption: 'Avec ma cliente la plus\nmémorable à ce jour',
+      caption: 'reine Sofia dEspagne',
       year: '2022',
       rotation: '4deg'
     },

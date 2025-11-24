@@ -3,12 +3,14 @@ import Image from 'next/image';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Button from './components/Button';
+import { BookingButton } from './components/booking/BookingButton';
+import { WhatsAppButton } from './components/booking/WhatsAppButton';
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-neutral-50">
       <Header />
-      
+
       {/* Hero Section */}
       <section className="relative">
         {/* Hero Background Image */}
@@ -25,7 +27,7 @@ export default function Home() {
             />
             <div className="absolute inset-0 bg-gradient-to-b from-neutral-900/30 via-neutral-900/40 to-neutral-900/60"></div>
           </div>
-          
+
           {/* Hero Content Overlay */}
           <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="space-y-8">
@@ -38,19 +40,19 @@ export default function Home() {
                 </span>
               </h1>
               <p className="text-lg md:text-xl text-white max-w-2xl mx-auto leading-relaxed text-shadow-md">
-                Chaque coupe raconte votre histoire. Découvrez un savoir-faire d&apos;exception 
+                Chaque coupe raconte votre histoire. Découvrez un savoir-faire d&apos;exception
                 où tradition et modernité se rencontrent.
               </p>
               <p className="text-sm text-neutral-200 max-w-2xl mx-auto text-shadow-md">
                 (Each cut tells your story. Discover exceptional expertise where tradition and modernity meet.)
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center mt-12">
-                <Button size="lg" className="bg-white text-neutral-900 hover:bg-neutral-100">
+                <BookingButton size="lg" className="bg-white text-neutral-900 hover:bg-neutral-100">
                   Découvrir nos créations
-                </Button>
-                <Button variant="secondary" size="lg" className="border-white text-white hover:bg-white hover:text-neutral-900">
+                </BookingButton>
+                <WhatsAppButton variant="secondary" size="lg" className="border-white text-white hover:bg-white hover:text-neutral-900">
                   Prendre rendez-vous
-                </Button>
+                </WhatsAppButton>
               </div>
             </div>
           </div>
@@ -67,16 +69,16 @@ export default function Home() {
               </h2>
               <div className="space-y-4 text-neutral-700 leading-relaxed">
                 <p>
-                  Dans notre salon, chaque coupe est unique. Nous privilégions la qualité 
+                  Dans notre salon, chaque coupe est unique. Nous privilégions la qualité
                   du service, l&apos;écoute et le conseil personnalisé.
                 </p>
                 <p>
-                  Nos créations capillaires naissent d&apos;un dialogue entre vos envies et notre expertise, 
+                  Nos créations capillaires naissent d&apos;un dialogue entre vos envies et notre expertise,
                   entre techniques traditionnelles et tendances modernes.
                 </p>
                 <p className="text-sm text-neutral-500">
-                  (In our salon, every cut is unique. We prioritize service quality, 
-                  listening and personalized advice. Our hair creations are born from a dialogue 
+                  (In our salon, every cut is unique. We prioritize service quality,
+                  listening and personalized advice. Our hair creations are born from a dialogue
                   between your desires and our expertise, between traditional techniques and modern trends.)
                 </p>
               </div>
@@ -109,7 +111,7 @@ export default function Home() {
               Des prestations d'exception pour sublimer votre beauté naturelle.
             </p>
           </div>
-          
+
           <div className="space-y-24">
             {/* Service 1 - Coupe & Style */}
             <div className="group text-center space-y-8">
@@ -130,7 +132,7 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            
+
             {/* Service 2 - Coloration */}
             <div className="group text-center space-y-8">
               <div className="relative w-[560px] h-[560px] mx-auto overflow-hidden rounded-none shadow-lg">
@@ -150,7 +152,7 @@ export default function Home() {
                 </p>
               </div>
             </div>
-            
+
             {/* Service 3 - Soins */}
             <div className="group text-center space-y-8">
               <div className="relative w-[560px] h-[560px] mx-auto overflow-hidden rounded-none shadow-lg">
@@ -171,7 +173,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          
+
           <div className="text-center mt-12">
             <Button variant="secondary">
               Voir tous nos services
@@ -187,15 +189,15 @@ export default function Home() {
             Prenons soin de vous
           </h2>
           <p className="text-neutral-300 text-lg max-w-2xl mx-auto leading-relaxed">
-            Réservez votre rendez-vous et laissez-nous sublimer votre beauté naturelle 
+            Réservez votre rendez-vous et laissez-nous sublimer votre beauté naturelle
             avec notre expertise d'exception.
           </p>
           <p className="text-sm text-neutral-400">
             (Book your appointment and let us enhance your natural beauty with our exceptional expertise.)
           </p>
-          <Button size="lg" className="bg-white text-neutral-900 hover:bg-neutral-100">
+          <WhatsAppButton size="lg" className="bg-white text-neutral-900 hover:bg-neutral-100">
             Prendre contact
-          </Button>
+          </WhatsAppButton>
         </div>
       </section>
 
