@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Operativa de Inventario - Geneva</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --bg-color: #f8f9fa;
+            --text-color: #333;
+            --border-color: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #555; /* Fondo oscuro para pantalla */
+            margin: 0;
+            padding: 20px;
+        }
+
+        .page-container {
+            background-color: white;
+            max-width: 210mm; /* Ancho A4 */
+            margin: 0 auto;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            border-radius: 4px;
+        }
+
+        /* Cabecera */
+        header {
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        h1 {
+            color: var(--primary-color);
+            font-size: 24px;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .meta-info {
+            font-size: 14px;
+            color: #666;
+            text-align: right;
+        }
+
+        /* Secciones */
+        .section {
+            margin-bottom: 25px;
+            page-break-inside: avoid; /* Evita que se corte al imprimir */
+        }
+
+        h2 {
+            font-size: 18px;
+            color: var(--accent-color);
+            border-left: 5px solid var(--accent-color);
+            padding-left: 10px;
+            margin-top: 0;
+        }
+
+        /* Checklists y Listas */
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        li::before {
+            content: "•";
+            color: var(--accent-color);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+
+        /* Cajas de Alerta y Notas */
+        .alert-box {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            color: #856404;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .action-box {
+            background-color: #e8f4fd;
+            border-left: 4px solid var(--accent-color);
+            padding: 15px;
+            margin: 10px 0;
+            font-style: italic;
+        }
+
+        /* Botón de impresión (solo visible en pantalla) */
+        .print-btn {
+            display: block;
+            margin: 0 auto 20px auto;
+            padding: 12px 24px;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .print-btn:hover {
+            background-color: #2980b9;
+        }
+
+        /* Estilos específicos para impresión */
+        @media print {
+            body {
+                background-color: white;
+                padding: 0;
+            }
+            .page-container {
+                box-shadow: none;
+                margin: 0;
+                padding: 20px;
+                max-width: 100%;
+            }
+            .print-btn {
+                display: none;
+            }
+        }
+        
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <button class="print-btn" onclick="window.print()">🖨️ Imprimir Guía como PDF</button>
+
+    <div class="page-container">
+        <header>
+            <div>
+                <h1>Guía Operativa de Inventario</h1>
+                <p style="margin: 5px 0 0 0; font-size: 14px;">Clasificación y Enriquecimiento de Datos</p>
+            </div>
+            <div class="meta-info">
+                <strong>Destino:</strong> Ginebra (Geneva)<br>
+                <strong>Para:</strong> Joe<br>
+                <strong>Prioridad:</strong> Alta
+            </div>
+        </header>
+
+        <div class="section">
+            <p><strong>Hola Joe,</strong></p>
+            <p>Para vender estos productos en el mercado suizo al precio correcto, necesitamos ir más allá de la etiqueta genérica. Esta guía de 5 pasos te ayudará a extraer la información técnica (tipo de base, color exacto, medidas) necesaria para nuestro E-commerce.</p>
+        </div>
+
+        <div class="section">
+            <h2>🛠️ Herramientas Necesarias</h2>
+            <div class="grid-container">
+                <ul>
+                    <li>✅ Cinta métrica (regla o metro).</li>
+                    <li>✅ Cinta de enmascarar (Masking tape).</li>
+                </ul>
+                <ul>
+                    <li>✅ Marcador/Bolígrafo.</li>
+                    <li>✅ Teléfono (para fotos).</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>PASO 1: Agrupación Física</h2>
+            <p>Separa las bolsas físicamente en una mesa basándote en lo escrito a mano en el paquete:</p>
+            <ul>
+                <li><strong>Grupo A:</strong> Marcadas como "18x22".</li>
+                <li><strong>Grupo B:</strong> Marcadas como "18x20".</li>
+                <li><strong>Grupo C:</strong> Marcadas como "15x20".</li>
+                <li><strong>Grupo D:</strong> Marcadas como "Huma Tira".</li>
+                <li><strong>Grupo E:</strong> Suministros (Botes y líquidos).</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>PASO 2: Inspección "Detective" (Crítico)</h2>
+            <p>Toma <strong>una unidad de muestra</strong> de cada grupo, ábrela y busca los siguientes datos:</p>
+            
+            <div class="action-box">
+                <strong>1. La Etiqueta China (Interior):</strong><br>
+                Busca etiquetas pequeñas blancas pegadas a la bolsa interior.
+                <ul>
+                    <li>Si dice <strong>"60 Net"</strong>, <strong>"Mono"</strong> o <strong>"Lace"</strong> = Base de Malla (Transpirable).</li>
+                    <li>Si dice <strong>"PU"</strong>, <strong>"Skin"</strong>, o <strong>"0.0x mm"</strong> = Base de Piel (Plástico invisible).</li>
+                </ul>
+            </div>
+
+            <div class="action-box">
+                <strong>2. El Color (Código vs. Ojo):</strong><br>
+                Mira el cabello bajo buena luz.
+                <ul>
+                    <li><strong>Negro Tinta:</strong> Es color #1.</li>
+                    <li><strong>Negro Natural (Café muy oscuro):</strong> Es color #1B.</li>
+                    <li><strong>¿Canas?</strong> Estima el % de pelos blancos (Ej: 10%, 20%, 50%).</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>PASO 3: El Misterio de la "Huma Tira"</h2>
+            <p>Para las 12 unidades marcadas como "Huma Tira", verifica:</p>
+            <ul>
+                <li>Mide el largo y el ancho exacto.</li>
+                <li><strong>¿Tienen pelo?</strong>
+                    <br>&nbsp;&nbsp;&nbsp;➝ SÍ = Son Frontales (Hairline).
+                    <br>&nbsp;&nbsp;&nbsp;➝ NO = Son cintas adhesivas de repuesto.
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>PASO 4: Líquidos y Pegamentos</h2>
+            <p>Revisa los botes:</p>
+            <ul>
+                <li>¿El líquido es <strong>Blanco</strong> (base agua) o <strong>Transparente</strong> (acrílico)?</li>
+                <li>¿Tienen marca impresa o son genéricos?</li>
+            </ul>
+        </div>
+
+        <div class="section" style="border: 2px dashed #ccc; padding: 20px; background-color: #fff;">
+            <h2>📝 Formato de Reporte Rápido</h2>
+            <p>Respóndeme usando este formato simple para cada grupo:</p>
+            <p style="font-family: monospace; background: #eee; padding: 10px;">
+                GRUPO [18x22]:<br>
+                - Cantidad: 6<br>
+                - Etiqueta interna dice: [Ej: 60 Net / Skin]<br>
+                - Material base: [Ej: Parece tela / Parece plástico]<br>
+                - Color: [Ej: Negro #1B sin canas]
+            </p>
+        </div>
+
+        <div class="alert-box">
+            <strong>⚠️ Nota de Seguridad:</strong> Trata el cabello con delicadeza. Si sacas la prótesis, guárdala siempre con la base hacia abajo para que el pegamento de la cinta protectora no ensucie el pelo.
+        </div>
+
+    </div>
+</body>
+</html>

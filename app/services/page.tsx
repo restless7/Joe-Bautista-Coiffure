@@ -81,21 +81,17 @@ export default function Services() {
                     à votre style et morphologie.
                   </p>
                   <div className="space-y-3 text-sm text-neutral-600">
-                    <div className="flex justify-between">
+                    <div>
                       <span>Shampooing + Brushing</span>
-                      <span className="font-medium">70 CHF</span>
                     </div>
-                    <div className="flex justify-between">
+                    <div>
                       <span>Shampooing + Brushing + Coupe</span>
-                      <span className="font-medium">100 CHF</span>
                     </div>
-                    <div className="flex justify-between">
+                    <div>
                       <span>Coupe Homme aux Ciseaux</span>
-                      <span className="font-medium">50 CHF</span>
                     </div>
-                    <div className="flex justify-between">
+                    <div>
                       <span>Coupe Enfant</span>
-                      <span className="font-medium">30 CHF</span>
                     </div>
                   </div>
                 </div>
@@ -114,17 +110,14 @@ export default function Services() {
                     et réalisée dans le respect des standards professionnels.
                   </p>
                   <div className="space-y-3 text-sm text-neutral-600">
-                    <div className="flex justify-between">
+                    <div>
                       <span>Couleur + Brushing</span>
-                      <span className="font-medium">120 CHF</span>
                     </div>
-                    <div className="flex justify-between">
+                    <div>
                       <span>Mèches + Brushing</span>
-                      <span className="font-medium">120 CHF</span>
                     </div>
-                    <div className="flex justify-between">
+                    <div>
                       <span>Balayage + Brushing</span>
-                      <span className="font-medium">120 CHF</span>
                     </div>
                   </div>
                 </div>
@@ -163,13 +156,11 @@ export default function Services() {
                     pour vos événements importants.
                   </p>
                   <div className="space-y-3 text-sm text-neutral-600">
-                    <div className="flex justify-between">
+                    <div>
                       <span>Traitement Kératine</span>
-                      <span className="font-medium">180 CHF</span>
                     </div>
-                    <div className="flex justify-between">
+                    <div>
                       <span>Chignons (Événements)</span>
-                      <span className="font-medium">100 CHF</span>
                     </div>
                   </div>
                 </div>
@@ -205,7 +196,6 @@ export default function Services() {
               </p>
               <div className="flex justify-between items-center">
                 <span className="text-neutral-500 text-sm">1 heure</span>
-                <span className="text-xl font-light">150 CHF</span>
               </div>
             </div>
 
@@ -221,7 +211,6 @@ export default function Services() {
               </p>
               <div className="flex justify-between items-center">
                 <span className="text-neutral-500 text-sm">Séance</span>
-                <span className="text-xl font-light">150 CHF</span>
               </div>
             </div>
 
@@ -236,13 +225,11 @@ export default function Services() {
                 Manucure et pédicure professionnelles pour des mains et pieds parfaits.
               </p>
               <div className="space-y-3 text-sm text-neutral-600">
-                <div className="flex justify-between">
+                <div>
                   <span>Manucure</span>
-                  <span className="font-medium">60 CHF</span>
                 </div>
-                <div className="flex justify-between">
+                <div>
                   <span>Pédicure</span>
-                  <span className="font-medium">100 CHF</span>
                 </div>
               </div>
             </div>
@@ -326,12 +313,11 @@ export default function Services() {
           <div className="text-center">
             <h3 className="text-2xl font-light mb-6">Forfait Famille</h3>
             <div className="bg-neutral-800 p-8 max-w-md mx-auto rounded-lg">
-              <div className="text-3xl font-light mb-4">280 CHF</div>
+              <div className="text-3xl font-light mb-4">Forfait Famille</div>
               <ul className="space-y-2 text-sm text-neutral-300 mb-6">
                 <li>Coupe + Shampooing + Brushing pour 2 adultes</li>
                 <li>Coupe enfant incluse</li>
                 <li>Déplacement à domicile inclus</li>
-                <li>Économie de 20 CHF</li>
               </ul>
               <BookingButton className="bg-white text-neutral-900 hover:bg-neutral-100 w-full">
                 Réserver le Forfait Famille

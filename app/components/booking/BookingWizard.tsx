@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useActionState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
+import { useFormState } from 'react-dom';
 import { Dialog, DialogPanel, DialogTitle, Transition, TransitionChild } from '@headlessui/react';
 import { X, Scissors, Calendar, MapPin, Check, ChevronRight, ChevronLeft, Loader2 } from 'lucide-react';
 import { useForm } from 'react-hook-form';
@@ -16,21 +17,21 @@ const bookingSchema = z.object({
     appointmentTime: z.string().min(1, "Time is required"),
     clientName: z.string().min(2, "Name is required"),
     clientAddress: z.string().min(5, "Address is required"),
-    clientPhone: z.string().regex(/^(?:\+41|0)[0-9]{9}$/, "Invalid Swiss phone number"),
+    clientPhone: z.string().min(10, "Phone number must be at least 10 characters"),
 });
 
 type BookingFormData = z.infer<typeof bookingSchema>;
 
 const SERVICES = [
-    { id: 'cut-blowdry', name: 'Cut & Blow Dry', price: '120 CHF', duration: '1h' },
-    { id: 'color-full', name: 'Full Color', price: '180 CHF', duration: '2h' },
-    { id: 'balayage', name: 'Balayage', price: '250 CHF', duration: '3h' },
-    { id: 'styling', name: 'Event Styling', price: '100 CHF', duration: '1h' },
+    { id: 'cut-blowdry', name: 'Cut & Blow Dry', duration: '1h' },
+    { id: 'color-full', name: 'Full Color', duration: '2h' },
+    { id: 'balayage', name: 'Balayage', duration: '3h' },
+    { id: 'styling', name: 'Event Styling', duration: '1h' },
 ];
 
 export function BookingWizard({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
     const [step, setStep] = useState(1);
-    const [state, formAction, isPending] = useActionState(createBooking, {});
+    const [state, formAction] = useFormState(createBooking, {});
 
     const { register, handleSubmit, watch, setValue, formState: { errors }, trigger } = useForm<BookingFormData>({
         resolver: zodResolver(bookingSchema),
@@ -80,10 +81,29 @@ export function BookingWizard({ isOpen, onClose }: { isOpen: boolean; onClose: (
                                 <Check className="h-8 w-8 text-green-600" />
                             </div>
                             <DialogTitle className="text-2xl font-bold text-gray-900">Booking Confirmed!</DialogTitle>
-                            <p className="mt-2 text-gray-600">We'll see you soon in Geneva.</p>
-                            <button onClick={onClose} className="mt-6 w-full bg-black text-white py-3 rounded-xl font-medium hover:bg-gray-800 transition-colors">
-                                Close
-                            </button>
+                            <p className="mt-2 text-gray-600 mb-6">Your appointment request has been received.</p>
+
+                            <div className="space-y-3">
+                                <button
+                                    onClick={() => window.print()}
+                                    className="w-full bg-white text-black border-2 border-black py-3 rounded-xl font-medium hover:bg-gray-50 transition-colors flex items-center justify-center gap-2"
+                                >
+                                    Print Receipt
+                                </button>
+
+                                <a
+                                    href={`https://wa.me/41794761781?text=${encodeURIComponent(`Hello, I would like to confirm my appointment for ${SERVICES.find(s => s.id === formData.serviceType)?.name} on ${formData.appointmentDate} at ${formData.appointmentTime}. Name: ${formData.clientName}`)}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="w-full bg-[#25D366] text-white py-3 rounded-xl font-medium hover:bg-[#128C7E] transition-colors flex items-center justify-center gap-2"
+                                >
+                                    Confirm on WhatsApp
+                                </a>
+
+                                <button onClick={onClose} className="w-full bg-gray-100 text-gray-700 py-3 rounded-xl font-medium hover:bg-gray-200 transition-colors">
+                                    Close
+                                </button>
+                            </div>
                         </DialogPanel>
                     </div>
                 </Dialog>
@@ -154,7 +174,7 @@ export function BookingWizard({ isOpen, onClose }: { isOpen: boolean; onClose: (
                                                     </div>
                                                     <div>
                                                         <h4 className="font-medium text-gray-900">{service.name}</h4>
-                                                        <p className="text-sm text-gray-500">{service.duration} • {service.price}</p>
+                                                        <p className="text-sm text-gray-500">{service.duration}</p>
                                                     </div>
                                                     {formData.serviceType === service.id && (
                                                         <Check className="w-5 h-5 text-black ml-auto" />
@@ -246,10 +266,7 @@ export function BookingWizard({ isOpen, onClose }: { isOpen: boolean; onClose: (
                                                 <span className="text-gray-500">Location</span>
                                                 <span className="font-medium text-right max-w-[200px]">{formData.clientAddress}</span>
                                             </div>
-                                            <div className="flex justify-between pt-2">
-                                                <span className="font-bold text-lg">Total</span>
-                                                <span className="font-bold text-lg">{SERVICES.find(s => s.id === formData.serviceType)?.price}</span>
-                                            </div>
+                                            {/* Price removed as per request */}
                                         </div>
 
                                         <div className="flex items-center gap-2 text-sm text-gray-500 justify-center">
@@ -285,13 +302,12 @@ export function BookingWizard({ isOpen, onClose }: { isOpen: boolean; onClose: (
                                         Next Step <ChevronRight className="w-4 h-4" />
                                     </button>
                                 ) : (
-                                    <form onSubmit={handleSubmit(onSubmit)} className="flex-1">
+                                    <form action={formAction} onSubmit={handleSubmit(onSubmit)} className="flex-1">
                                         <button
                                             type="submit"
-                                            disabled={isPending}
-                                            className="w-full bg-black text-white py-3 rounded-xl font-medium flex items-center justify-center gap-2 hover:bg-gray-800 transition-colors disabled:opacity-50"
+                                            className="w-full bg-black text-white py-3 rounded-xl font-medium flex items-center justify-center gap-2 hover:bg-gray-800 transition-colors"
                                         >
-                                            {isPending ? <Loader2 className="w-5 h-5 animate-spin" /> : 'Confirm Appointment'}
+                                            Confirm Appointment
                                         </button>
                                     </form>
                                 )}
