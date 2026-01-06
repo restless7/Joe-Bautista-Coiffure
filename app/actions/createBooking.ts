@@ -17,6 +17,14 @@ const bookingSchema = z.object({
 export type BookingState = {
     success?: boolean;
     error?: string;
+    bookingId?: string;
+    data?: {
+        serviceType: string;
+        appointmentDate: string;
+        clientName: string;
+        clientAddress: string;
+        clientPhone: string;
+    };
     errors?: {
         [K in keyof z.infer<typeof bookingSchema>]?: string[];
     };
@@ -57,7 +65,7 @@ export async function createBooking(prevState: BookingState, formData: FormData)
             return { error: "This time slot is already booked. Please choose another." };
         }
 
-        await prisma.booking.create({
+        const booking = await prisma.booking.create({
             data: {
                 serviceType,
                 appointmentDate: date,
@@ -69,7 +77,17 @@ export async function createBooking(prevState: BookingState, formData: FormData)
         });
 
         revalidatePath('/');
-        return { success: true };
+        return {
+            success: true,
+            bookingId: booking.id,
+            data: {
+                serviceType,
+                appointmentDate: date.toISOString(), // Ensure serialized
+                clientName,
+                clientAddress,
+                clientPhone
+            }
+        };
     } catch (error) {
         console.error('Booking error:', error);
         return { error: "Something went wrong. Please try again." };
