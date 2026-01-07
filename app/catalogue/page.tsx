@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Header from '@/app/components/Header';
 import Footer from '@/app/components/Footer';
 import { WhatsAppButton } from '@/app/components/booking/WhatsAppButton';
+import { BookingButton } from '@/app/components/booking/BookingButton';
 import { ProductCard } from '@/app/components/catalogue/ProductCard';
 import { FilterSidebar } from '@/app/components/catalogue/FilterSidebar';
 import { Testimonials } from '@/app/components/catalogue/Testimonials';
@@ -54,12 +55,12 @@ export default function CataloguePage() {
                         révéler votre authenticité.
                     </p>
                     <div className="flex flex-col sm:flex-row justify-center gap-6 pt-8">
-                        <WhatsAppButton variant="primary" size="lg" className="bg-stone-900 border-stone-900 text-white hover:bg-stone-800 px-8 py-4">
+                        <BookingButton size="lg" className="bg-stone-900 text-white hover:bg-stone-800 px-8 py-4">
                             Réserver une Consultation
+                        </BookingButton>
+                        <WhatsAppButton variant="secondary" size="lg" className="bg-transparent border-stone-300 text-stone-900 hover:border-stone-900 px-8 py-4">
+                            Discuter sur WhatsApp
                         </WhatsAppButton>
-                        <button onClick={() => document.getElementById('collection')?.scrollIntoView({ behavior: 'smooth' })} className="px-8 py-4 bg-transparent border border-stone-300 text-stone-900 uppercase tracking-widest text-xs font-semibold hover:border-stone-900 transition-colors">
-                            Découvrir la Collection
-                        </button>
                     </div>
                 </div>
             </section>
@@ -79,6 +80,11 @@ export default function CataloguePage() {
                                 <li className="flex items-center gap-2"><div className="w-1 h-1 bg-stone-900 rounded-full" /> Indétectable au toucher</li>
                                 <li className="flex items-center gap-2"><div className="w-1 h-1 bg-stone-900 rounded-full" /> Résistant à l&apos;eau et au sport</li>
                             </ul>
+                            <div className="pt-4">
+                                <BookingButton variant="secondary" className="border border-stone-200 bg-transparent hover:bg-stone-50">
+                                    Diagnostic Homme
+                                </BookingButton>
+                            </div>
                         </div>
                         <div className="space-y-6">
                             <h3 className="text-3xl font-light text-stone-900">Volumateurs Femme</h3>
@@ -91,6 +97,11 @@ export default function CataloguePage() {
                                 <li className="flex items-center gap-2"><div className="w-1 h-1 bg-stone-900 rounded-full" /> Volume instantané</li>
                                 <li className="flex items-center gap-2"><div className="w-1 h-1 bg-stone-900 rounded-full" /> Intégration invisible</li>
                             </ul>
+                            <div className="pt-4">
+                                <BookingButton variant="secondary" className="border border-stone-200 bg-transparent hover:bg-stone-50">
+                                    Diagnostic Femme
+                                </BookingButton>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -158,9 +169,9 @@ export default function CataloguePage() {
                             Nos solutions sont conçues pour résister à une vie active et intense,
                             vous offrant une liberté de mouvement totale et une tranquillité d&apos;esprit absolue.
                         </p>
-                        <WhatsAppButton variant="primary" className="bg-stone-900 text-white hover:bg-stone-800">
-                            En savoir plus sur la fixation
-                        </WhatsAppButton>
+                        <BookingButton className="bg-stone-900 text-white hover:bg-stone-800 w-full md:w-auto">
+                            Je veux ma liberté
+                        </BookingButton>
                     </div>
                 </div>
             </section>
@@ -177,8 +188,11 @@ export default function CataloguePage() {
                         et découvrez la solution qui changera votre quotidien.
                     </p>
                     <div className="flex flex-col sm:flex-row justify-center gap-6 pt-4">
-                        <WhatsAppButton variant="secondary" size="lg" className="border-white text-white hover:bg-white hover:text-stone-900 px-10 py-4 text-lg">
-                            Prendre Rendez-vous
+                        <BookingButton size="lg" className="bg-white text-stone-900 hover:bg-stone-50 px-10 py-4 text-lg">
+                            Réserver mon Créneau
+                        </BookingButton>
+                        <WhatsAppButton variant="secondary" size="lg" className="border-stone-700 text-stone-300 hover:border-white hover:text-white px-10 py-4 text-lg">
+                            Question Rapide ?
                         </WhatsAppButton>
                     </div>
                     <p className="text-stone-500 text-sm mt-8">

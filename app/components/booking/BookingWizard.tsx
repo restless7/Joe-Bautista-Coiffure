@@ -66,8 +66,7 @@ export function BookingWizard({ isOpen, onClose }: { isOpen: boolean; onClose: (
     };
 
     useEffect(() => {
-        // Console log for debugging
-        console.log('BookingWizard State Update:', state);
+        // State update handling if needed in future
     }, [state]);
 
     const generateTicket = async () => {
