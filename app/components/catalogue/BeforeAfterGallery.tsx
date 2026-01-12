@@ -35,6 +35,24 @@ const transformations: Transformation[] = [
         image: "/images/catalogue/transformation-4.jpg",
         name: "David, 48 ans",
         description: "Rajeunissement instantané"
+    },
+    {
+        id: "5",
+        image: "/images/catalogue/transformation-5.jpg",
+        name: "Antoine, 41 ans",
+        description: "Confiance retrouvée"
+    },
+    {
+        id: "6",
+        image: "/images/catalogue/transformation-6.jpg",
+        name: "Nicolas, 55 ans",
+        description: "Naturel et discret"
+    },
+    {
+        id: "7",
+        image: "/images/catalogue/transformation-7.jpg",
+        name: "François, 43 ans",
+        description: "Style moderne et élégant"
     }
 ];
 
@@ -89,10 +107,10 @@ export function BeforeAfterGallery() {
                             <div
                                 key={item.id}
                                 className={`absolute inset-0 transition-all duration-700 ease-in-out ${index === currentIndex
-                                        ? 'opacity-100 translate-x-0'
-                                        : index < currentIndex
-                                            ? 'opacity-0 -translate-x-full'
-                                            : 'opacity-0 translate-x-full'
+                                    ? 'opacity-100 translate-x-0'
+                                    : index < currentIndex
+                                        ? 'opacity-0 -translate-x-full'
+                                        : 'opacity-0 translate-x-full'
                                     }`}
                             >
                                 <Image
@@ -141,8 +159,8 @@ export function BeforeAfterGallery() {
                                 key={index}
                                 onClick={() => setCurrentIndex(index)}
                                 className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${index === currentIndex
-                                        ? 'bg-stone-900 w-8'
-                                        : 'bg-stone-300 hover:bg-stone-400'
+                                    ? 'bg-stone-900 w-8'
+                                    : 'bg-stone-300 hover:bg-stone-400'
                                     }`}
                                 aria-label={`Aller à l'image ${index + 1}`}
                             />
