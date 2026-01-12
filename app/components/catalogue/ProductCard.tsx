@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { Product, PricingTier, PRICE_MULTIPLIER } from '@/app/lib/products';
 import { VariantSelector } from './VariantSelector';
 import { ColorSwatch } from './ColorSwatch';
@@ -9,6 +10,13 @@ import { ColorSwatch } from './ColorSwatch';
 interface ProductCardProps {
     product: Product;
 }
+
+// Map category to default image
+const getCategoryImage = (category: 'Men' | 'Women') => {
+    return category === 'Men'
+        ? '/images/catalogue/product-men-skin.jpg'
+        : '/images/catalogue/product-women-topper.jpg';
+};
 
 export function ProductCard({ product }: ProductCardProps) {
     const [selectedVariant, setSelectedVariant] = useState<PricingTier | null>(
@@ -34,20 +42,18 @@ export function ProductCard({ product }: ProductCardProps) {
 
     return (
         <div className="group relative flex flex-col bg-white overflow-hidden transition-all duration-300 hover:shadow-lg">
-            {/* Image Placeholder - using a solid color div or next/image if I had assets */}
+            {/* Product Image */}
             <div className="relative aspect-[3/4] overflow-hidden bg-stone-100">
-                {/* 
-              In a real app, we'd map product IDs to images. 
-              For now, using a placeholder text/style.
-            */}
-                <div className="absolute inset-0 flex items-center justify-center text-stone-300 font-light text-2xl">
-                    {product.category === 'Men' ? 'Men\'s System' : 'Women\'s Topper'}
-                </div>
+                <Image
+                    src={getCategoryImage(product.category)}
+                    alt={product.name}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
 
                 {/* Hover overlay/effect */}
                 <div className="absolute inset-0 bg-black/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-                {/* Quick Add / View Button appearing on hover could go here */}
             </div>
 
             <div className="p-4 flex flex-col flex-grow gap-2">

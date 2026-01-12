@@ -55,21 +55,13 @@ export function Testimonials() {
                     {testimonials.map((t) => (
                         <div key={t.id} className="bg-white p-8 hover:shadow-xl transition-shadow duration-300 flex flex-col items-center text-center group">
                             <div className="relative w-32 h-32 mb-6 rounded-full overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500 ring-4 ring-stone-50">
-                                {/* 
-                  Using a placeholder if image fails or for initial setup.
-                  In production, these would be real Next/Image components.
-                */}
-                                <div className="absolute inset-0 bg-stone-200 flex items-center justify-center text-stone-400">
-                                    <span className="text-xs">Image {t.name}</span>
-                                </div>
-                                {/* Uncomment when images are available
-                <Image 
-                  src={t.image} 
-                  alt={`Témoignage de ${t.name}`} 
-                  fill 
-                  className="object-cover"
-                />
-                */}
+                                <Image
+                                    src={t.image}
+                                    alt={`Témoignage de ${t.name}`}
+                                    fill
+                                    sizes="128px"
+                                    className="object-cover"
+                                />
                             </div>
 
                             <blockquote className="text-lg font-medium text-stone-900 mb-4 italic">

@@ -12,6 +12,8 @@ import { Testimonials } from '@/app/components/catalogue/Testimonials';
 import { ProcessSteps } from '@/app/components/catalogue/ProcessSteps';
 import { FAQ } from '@/app/components/catalogue/FAQ';
 import { FeatureGrid } from '@/app/components/catalogue/FeatureGrid';
+import { BeforeAfterGallery } from '@/app/components/catalogue/BeforeAfterGallery';
+import { ProductShowcase } from '@/app/components/catalogue/ProductShowcase';
 import { products } from '@/app/lib/products';
 
 export default function CataloguePage() {
@@ -35,7 +37,20 @@ export default function CataloguePage() {
             <Header />
 
             {/* 1. The Header Hero */}
-            <section className="relative pt-32 pb-40 px-4 sm:px-6 lg:px-8 text-center bg-stone-50 overflow-hidden">
+            <section className="relative pt-32 pb-40 px-4 sm:px-6 lg:px-8 text-center overflow-hidden">
+                {/* Background Image */}
+                <div className="absolute inset-0">
+                    <Image
+                        src="/images/catalogue/hero-texture.jpg"
+                        alt="Hair texture background"
+                        fill
+                        sizes="100vw"
+                        className="object-cover"
+                        priority
+                    />
+                    <div className="absolute inset-0 bg-stone-50/85" /> {/* Light overlay for text readability */}
+                </div>
+
                 {/* Background Decoration (optional) */}
                 <div className="absolute top-0 left-0 w-full h-full opacity-30 pointer-events-none">
                     <div className="absolute top-[-10%] right-[-10%] w-[500px] h-[500px] rounded-full bg-stone-200 blur-[80px]" />
@@ -107,7 +122,10 @@ export default function CataloguePage() {
                 </div>
             </section>
 
-            {/* 3. The Atelier Difference (Feature Grid) */}
+            {/* 3. Before/After Transformations */}
+            <BeforeAfterGallery />
+
+            {/* 4. The Atelier Difference (Feature Grid) */}
             <FeatureGrid />
 
             {/* 4. The Collection (Grid) */}
@@ -150,15 +168,16 @@ export default function CataloguePage() {
 
             {/* 7. Lifestyle (Active Life) */}
             <section className="relative h-[600px] flex items-center">
-                {/* Background Image Placeholder */}
-                <div className="absolute inset-0 bg-stone-200">
-                    {/* 
-              Real image would be: <Image src="/images/catalogue/lifestyle-active.jpg" ... />
-            */}
-                    <div className="absolute inset-0 flex items-center justify-center text-stone-400 font-light text-2xl tracking-widest uppercase">
-                        Lifestyle / Sport / Liberté
-                    </div>
-                    <div className="absolute inset-0 bg-black/20" /> {/* Overlay */}
+                {/* Background Image */}
+                <div className="absolute inset-0">
+                    <Image
+                        src="/images/catalogue/lifestyle-active.jpg"
+                        alt="Active lifestyle with hair system"
+                        fill
+                        sizes="100vw"
+                        className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-black/30" /> {/* Overlay */}
                 </div>
 
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
@@ -176,7 +195,10 @@ export default function CataloguePage() {
                 </div>
             </section>
 
-            {/* 8. FAQ */}
+            {/* 8. Product Showcase */}
+            <ProductShowcase />
+
+            {/* 9. FAQ */}
             <FAQ />
 
             {/* 9. The Consultation Footer */}

@@ -38,20 +38,13 @@ export function FeatureGrid() {
                     {features.map((feature, idx) => (
                         <div key={idx} className="group cursor-default">
                             <div className="relative aspect-[4/5] overflow-hidden mb-6 bg-stone-800">
-                                {/* Placeholder overlay */}
-                                <div className="absolute inset-0 flex items-center justify-center text-stone-600 font-light text-sm">
-                                    Image: {feature.title}
-                                </div>
-
-                                {/* 
-                           Uncomment for real images
-                           <Image 
-                              src={feature.image} 
-                              alt={feature.title} 
-                              fill 
-                              className="object-cover opacity-70 group-hover:opacity-100 transition-opacity duration-700" 
-                           />
-                         */}
+                                <Image
+                                    src={feature.image}
+                                    alt={feature.title}
+                                    fill
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                                    className="object-cover opacity-70 group-hover:opacity-100 transition-opacity duration-700"
+                                />
                             </div>
                             <h3 className="text-xl font-medium mb-3">{feature.title}</h3>
                             <p className="text-stone-400 font-light leading-relaxed text-sm">
