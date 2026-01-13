@@ -90,6 +90,8 @@ export async function createBooking(prevState: BookingState, formData: FormData)
         };
     } catch (error) {
         console.error('Booking error:', error);
-        return { error: "Something went wrong. Please try again." };
+        // Return more specific error message for debugging
+        const errorMessage = error instanceof Error ? error.message : "Unknown error";
+        return { error: `Booking failed: ${errorMessage}` };
     }
 }
